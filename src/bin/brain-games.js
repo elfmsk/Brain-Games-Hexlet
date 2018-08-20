@@ -1,2 +1,6 @@
 #!/usr/bin/env node
-console.log('Welcome to the Brain Games!');
+import askname from '..';
+
+console.log('Welcome to the Brain Games! \n' );
+
+const ask = askname();

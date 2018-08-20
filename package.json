@@ -1,6 +1,6 @@
 {
-  "name": "Elfmsk_First_Project",
-  "version": "1.0.0",
+  "name": "elfmskfirstproject",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "bin": {
@@ -18,14 +18,15 @@
   "author": "elfmsk",
   "license": "ISC",
   "repository": {
-  "type": "git",
-  "url": "git+https://github.com/elfmsk/project-lvl1-s328.git"
+    "type": "git",
+    "url": "git+https://github.com/elfmsk/project-lvl1-s328.git"
   },
   "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "babel-preset-stage-0": "^6.24.1"
+    "babel-preset-stage-0": "^6.24.1",
+    "readline-sync": "^1.4.9"
   }
 }
