@@ -1,8 +1,8 @@
 {
   "name": "elfmskfirstproject",
-  "version": "1.0.1",
-  "description": "",
-  "main": "index.js",
+  "version": "1.0.2",
+  "description": "First project is Brain Games from Hexlet",
+  "main": "",
   "bin": {
     "brain-games": "dist/bin/brain-games.js"
   },
@@ -21,12 +21,13 @@
     "type": "git",
     "url": "git+https://github.com/elfmsk/project-lvl1-s328.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "readline-sync": "^1.4.9"
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "readline-sync": "^1.4.9"
+    "babel-preset-stage-0": "^6.24.1"
   }
 }
