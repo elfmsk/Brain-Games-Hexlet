@@ -4,6 +4,7 @@
   "description": "First project is Brain Games from Hexlet",
   "main": "",
   "bin": {
+    "brain-calc": "dist/bin/brain-calc.js",
     "brain-games": "dist/bin/brain-games.js",
     "brain-even": "dist/bin/brain-even.js"
   },
