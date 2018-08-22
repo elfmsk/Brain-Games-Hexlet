@@ -6,39 +6,31 @@ export const askname = () => {
   console.log(`Hello, ${actual}`);
 };
 
-export const yesorno = () => {
-  console.log('Welcome to Brain Games!\nAnswer "yes" if number even otherwise answer "no".\n');
+
+export const gameTrue = () => {
+  const helloGame = console.log('Welcome to Brain Games!');
+  const answerGmaeTrue = console.log('Answer "yes" if number even otherwise answer "no".\n');
   const name = readlineSync.question('What is Your name? ');
   console.log(`Hello, ${name}!\n`);
 
-  const objbool = {
-    yes: true,
-    no: false,
-  };
-  const objansw = {
-    yes: 'no',
-    no: 'yes',
-  };
+  const comparison = (question) => question % 2 === 0;
 
-  for (let i = 0; i <= 3; i += 1) {
-    if (i === 3) {
-      console.log(`Congratulations, ${name}!`);
-      break;
-    }
+  for (let i = 0; i < 3; i += 1) {
 
-    const quest = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
-    const comparison = quest % 2 === 0;
+    const question = Math.floor(Math.random() * 100);
+    const correctAnswer = comparison(question) ? 'yes' : 'no';
 
-    console.log(`Question: ${quest}`);
+    console.log(`Question: ${question}`);
 
-    const answ = readlineSync.question('Your answer: ');
+    const answer = readlineSync.question('Your answer: ');
 
-    if (objbool[answ] === comparison) {
+    if (answer === correctAnswer) {
       console.log('Correct!');
     } else {
-      console.log(`\n${answ} is wrong answer ;(. Correct answer was ${objansw[answ]}.
+      console.log(`\n${answer} is wrong answer ;(. Correct answer was ${correctAnswer}.
 Let's try again, ${name}!`);
-      break;
+      return;
     }
   }
+  console.log(`Congratulations, ${name}!`);
 };

@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import { yesorno } from '../index';
+import { gameTrue } from '..';
 
-yesorno();
+gameTrue();
