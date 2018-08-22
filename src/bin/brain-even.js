@@ -1,4 +1,6 @@
 #!/usr/bin/env node
-import { gameTrue } from '..';
+import brainGame from '..';
+import brainEven from '../games/gameEven';
 
-gameTrue();
+const description = 'Answer "yes" if number even otherwise answer "no".\n';
+brainGame(brainEven, description);

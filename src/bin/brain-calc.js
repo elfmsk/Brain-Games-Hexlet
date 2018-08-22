@@ -1,4 +1,6 @@
 #!/usr/bin/env node
-import { gameCalc } from '..';
+import brainGame from '..';
+import brainCalc from '../games/gameCalc';
 
-gameCalc();
+const description = 'What is the result of the expression?\n';
+brainGame(brainCalc, description);
