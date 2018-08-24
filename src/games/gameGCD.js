@@ -1,17 +1,21 @@
 import brainGame from '..';
-import until from '../until';
+import utils from '../utils';
+
+const description = 'Find the greatest common divisor of given numbers.';
 
 export default () => {
-  const description = 'Find the greatest common divisor of given numbers.\n';
-
   const gameGCD = () => {
-    const randomNumber = until();
-    const randomNumber2 = until();
+    const randomNumber = utils(1, 99);
+    const randomNumber2 = utils(1, 99);
     const correctAnswer = (num1, num2) => {
       let numberOne = num1;
       let numberTwo = num2;
       if (numberOne === numberTwo) {
-        return String(numberOne);
+        const result = {
+          answer: String(numberOne),
+          question: `${randomNumber} ${randomNumber2}`,
+        };
+        return result;
       }
       if (numberOne > numberTwo) {
         numberOne = num1 - num2;
@@ -20,7 +24,7 @@ export default () => {
       }
       return correctAnswer(numberOne, numberTwo);
     };
-    console.log(`Question: ${randomNumber} ${randomNumber2}`);
+
     return correctAnswer(randomNumber, randomNumber2);
   };
 

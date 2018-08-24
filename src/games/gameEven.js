@@ -1,14 +1,19 @@
 import brainGame from '..';
-import until from '../until';
+import utils from '../utils';
+
+const isEven = question => question % 2 === 0;
+const description = 'Answer "yes" if number even otherwise answer "no".';
 
 export default () => {
-  const isEven = question => question % 2 === 0;
-  const description = 'Answer "yes" if number even otherwise answer "no".\n';
   const gameEven = () => {
-    const randomNumber = until();
+    const randomNumber = utils(1, 99);
     const correctAnswer = isEven(randomNumber) ? 'yes' : 'no';
-    console.log(`Question: ${randomNumber}`);
-    return correctAnswer;
+    const result = {
+      answer: correctAnswer,
+      question: `${randomNumber}`,
+    };
+
+    return result;
   };
 
   return brainGame(gameEven, description);

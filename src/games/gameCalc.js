@@ -1,14 +1,14 @@
-import until from '../until';
+import utils from '../utils';
 import brainGame from '..';
 
-export default () => {
-  const description = 'What is the result of the expression?\n';
-  const operator = ['+', '-', '*'];
+const description = 'What is the result of the expression?';
+const operator = ['+', '-', '*'];
 
+export default () => {
   const gameCalc = (counterStep) => {
     let correctAnswer;
-    const randomNumber = until();
-    const randomNumber2 = until();
+    const randomNumber = utils(1, 99);
+    const randomNumber2 = utils(1, 99);
 
     switch (counterStep) {
       case 0: correctAnswer = randomNumber + randomNumber2;
@@ -20,8 +20,12 @@ export default () => {
       default: correctAnswer = 'Перебор!';
     }
 
-    console.log(`Question: ${randomNumber} ${operator[counterStep]} ${randomNumber2}`);
-    return String(correctAnswer);
+    const result = {
+      answer: String(correctAnswer),
+      question: `${randomNumber} ${operator[counterStep]} ${randomNumber2}`,
+    };
+
+    return result;
   };
 
   return brainGame(gameCalc, description);
