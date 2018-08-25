@@ -2,7 +2,8 @@ import brainGame from '..';
 import randomNum from '../utils';
 
 const description = 'Balance the given number.';
-const arithmetic = (arg) => {
+const balanceNum = (num) => {
+  const arg = String(num);
   let sum = 0;
   for (let count = 0; count < arg.length; count += 1) {
     sum += Number(arg[count]);
@@ -23,9 +24,9 @@ const arithmetic = (arg) => {
   return result;
 };
 const balance = () => {
-  const randomNumber = String(randomNum(10, 9999));
+  const randomNumber = randomNum(100, 9999);
   const result = {
-    answer: arithmetic(randomNumber),
+    answer: balanceNum(randomNumber),
     question: `${randomNumber}`,
   };
   return result;

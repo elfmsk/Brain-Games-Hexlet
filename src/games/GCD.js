@@ -6,7 +6,7 @@ const findNOD = (num1, num2) => {
   let numberOne = num1;
   let numberTwo = num2;
   if (numberOne === numberTwo) {
-    return String(numberOne);
+    return numberOne;
   }
   if (numberOne > numberTwo) {
     numberOne = num1 - num2;
@@ -20,7 +20,7 @@ const gameGCD = () => {
   const randomNumber = randomNum(1, 99);
   const randomNumber2 = randomNum(1, 99);
   const result = {
-    answer: findNOD(randomNumber, randomNumber2),
+    answer: String(findNOD(randomNumber, randomNumber2)),
     question: `${randomNumber} ${randomNumber2}`,
   };
   return result;
