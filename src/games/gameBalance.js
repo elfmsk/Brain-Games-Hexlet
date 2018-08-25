@@ -1,47 +1,34 @@
 import brainGame from '..';
-import utils from '../utils';
+import randomNum from '../utils';
 
 const description = 'Balance the given number.';
-const sortNum = mas => mas.sort();
-const strMas = str => str.split('');
-const deleteFirstLast = (mas) => {
-  mas.pop();
-  mas.shift();
-  return mas;
+const arithmetic = (arg) => {
+  let sum = 0;
+  for (let count = 0; count < arg.length; count += 1) {
+    sum += Number(arg[count]);
+  }
+  const middle = sum / arg.length;
+  const residue = sum % arg.length;
+  const minValue = Math.floor(middle);
+
+  let result = '';
+
+  for (let count = 0; count < arg.length; count += 1) {
+    if (count < arg.length - residue) {
+      result += minValue;
+    } else {
+      result += minValue + 1;
+    }
+  }
+  return result;
 };
-const stopBalance = 2;
-
-export default () => {
-  const balance = () => {
-    const randomNumber = String(utils(10, 9999));
-
-    const correctAnswer = (arg) => {
-      const sortArg = sortNum(arg); // Сортируем массив от меньшего к большему
-      const min = Number(sortArg[0]); // Берем с левого края массива наименьшее число
-      const max = Number(sortArg[sortArg.length - 1]); // аналогично с наибольшим числом
-      let medium; // эта переменная пригодиться в дальнейшем при подсчете
-      if (max - min < stopBalance) { // Основное условие при выполнений которого вернется
-        // правильный ответ
-        const result = {
-          answer: sortArg.join(''),
-          question: `${randomNumber}`,
-        };
-        return result;
-      }
-      if ((max + min) % 2 === 0) { // Идея простая находим среднее арифметическое значение.
-        medium = String((max + min) / 2);
-        deleteFirstLast(sortArg); // удаляем старые значения из массива
-        sortArg.splice(0, 0, medium, medium); // добавляем новые значения
-      } else {
-        deleteFirstLast(sortArg);
-        sortArg.push(String(((max + min) / 2) - 0.5));
-        sortArg.push(String(((max + min) / 2) + 0.5));
-      }
-      return correctAnswer(sortArg); // рекурсивно вызываем функцию передавая новый массив
-    };
-
-    return correctAnswer(strMas(randomNumber)); // Вызываем функцию которая находит правильный
-    // ответ. Передаем ей рандомное число преобразованое в массив.
+const balance = () => {
+  const randomNumber = String(randomNum(10, 9999));
+  const result = {
+    answer: arithmetic(randomNumber),
+    question: `${randomNumber}`,
   };
-  return brainGame(balance, description);
+  return result;
 };
+
+export default () => brainGame(balance, description);

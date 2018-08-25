@@ -1,32 +1,30 @@
-import utils from '../utils';
+import randomNum from '../utils';
 import brainGame from '..';
 
 const description = 'What is the result of the expression?';
 const operator = ['+', '-', '*'];
 
-export default () => {
-  const gameCalc = (counterStep) => {
-    let correctAnswer;
-    const randomNumber = utils(1, 99);
-    const randomNumber2 = utils(1, 99);
+const gameCalc = () => {
+  let correctAnswer;
+  const randomNumber = randomNum(1, 99);
+  const randomNumber2 = randomNum(1, 99);
+  const randomOperator = randomNum(0, 2);
+  switch (randomOperator) {
+    case 0: correctAnswer = randomNumber + randomNumber2;
+      break;
+    case 1: correctAnswer = randomNumber - randomNumber2;
+      break;
+    case 2: correctAnswer = randomNumber * randomNumber2;
+      break;
+    default: correctAnswer = 'Перебор!';
+  }
 
-    switch (counterStep) {
-      case 0: correctAnswer = randomNumber + randomNumber2;
-        break;
-      case 1: correctAnswer = randomNumber - randomNumber2;
-        break;
-      case 2: correctAnswer = randomNumber * randomNumber2;
-        break;
-      default: correctAnswer = 'Перебор!';
-    }
-
-    const result = {
-      answer: String(correctAnswer),
-      question: `${randomNumber} ${operator[counterStep]} ${randomNumber2}`,
-    };
-
-    return result;
+  const result = {
+    answer: String(correctAnswer),
+    question: `${randomNumber} ${operator[randomOperator]} ${randomNumber2}`,
   };
 
-  return brainGame(gameCalc, description);
+  return result;
 };
+
+export default () => brainGame(gameCalc, description);

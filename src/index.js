@@ -8,7 +8,7 @@ const brainGame = (funCorrectAnswer, description) => {
   const name = readlineSync.question('What is Your name? ');
   console.log(`Hello, ${name}!\n`);
   for (let counterStep = 0; counterStep < maxSteps; counterStep += 1) {
-    const correctAnswer = funCorrectAnswer(counterStep);
+    const correctAnswer = funCorrectAnswer();
     console.log(`Question: ${correctAnswer.question}`);
     const answer = readlineSync.question('Your answer: ');
     if (answer === correctAnswer.answer) {
