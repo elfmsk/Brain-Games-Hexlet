@@ -5,7 +5,7 @@ const description = 'What number is missing in this progression?';
 
 const gameProgression = () => {
   const start = randomNum(1, 99);
-  const prog = randomNum(1, 2);
+  const prog = randomNum(1, 99);
   const questunStep = randomNum(0, 6);
   let resultStr = `${start} `;
   let correctAnswer = '';
