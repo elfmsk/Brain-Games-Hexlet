@@ -5,7 +5,7 @@ const description = 'Is this number prime?';
 
 const isPrime = (num) => {
   if (num <= 1) return false;
-  for (let count = 2; count / num !== 1; count += 1) {
+  for (let count = 2; count <= num / 2; count += 1) {
     if (num % count === 0) return false;
   }
   return true;
