@@ -2,29 +2,27 @@ import brainGame from '..';
 import randomNum from '../utils';
 
 const description = 'What number is missing in this progression?';
-const lastElement = 10;
+const progressionLength = 10;
 
 const gameProgression = () => {
   const start = randomNum(1, 99);
   const step = randomNum(1, 10);
-  const hideElement = randomNum(0, 6);
-  let progression = '';
-  let correctAnswer = '';
-  let checkPoint = start;
+  const hideElementPosition = randomNum(0, progressionLength - 1);
+  const correctAnswer = start + hideElementPosition * step;
 
-  for (let count = 0; count < lastElement; count += 1) {
-    checkPoint = start + step * count;
-    if (count === hideElement) {
+  let progression = '';
+
+  for (let count = 0; count < progressionLength; count += 1) {
+    const checkPoint = start + step * count;
+    if (count === hideElementPosition) {
       progression += '.. ';
-      correctAnswer += `${checkPoint}`;
-      checkPoint = start + step * (count);
     } else {
       progression += `${checkPoint} `;
     }
   }
 
   const result = {
-    answer: correctAnswer,
+    answer: String(correctAnswer),
     question: `${progression}`,
   };
   return result;
