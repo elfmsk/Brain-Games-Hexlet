@@ -6,7 +6,7 @@ const lastElement = 10;
 
 const gameProgression = () => {
   const start = randomNum(1, 99);
-  const step = randomNum(1, 3);
+  const step = randomNum(1, 10);
   const hideElement = randomNum(0, 6);
   let progression = '';
   let correctAnswer = '';
@@ -16,8 +16,8 @@ const gameProgression = () => {
     checkPoint = start + step * count;
     if (count === hideElement) {
       progression += '.. ';
-      correctAnswer += `${checkPoint} ${checkPoint + step}`;
-      checkPoint = start + step * (count += 1);
+      correctAnswer += `${checkPoint}`;
+      checkPoint = start + step * (count);
     } else {
       progression += `${checkPoint} `;
     }
