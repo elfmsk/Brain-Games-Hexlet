@@ -2,7 +2,7 @@ install:
 	npm install
 
 start:
-	npm run babel-node -- src/bin/brain-progression.js
+	npm run babel-node -- src/bin/brain-game.js
 
 publish:
 	npm publish

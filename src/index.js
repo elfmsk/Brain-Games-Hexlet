@@ -3,7 +3,6 @@ import readlineSync from 'readline-sync';
 const maxSteps = 3;
 
 const brainGame = (funCorrectAnswer, description) => {
-  console.log('Welcome to Brain Games!');
   console.log(description, '\n');
   const name = readlineSync.question('What is Your name? ');
   console.log(`Hello, ${name}!\n`);
@@ -15,10 +14,10 @@ const brainGame = (funCorrectAnswer, description) => {
       console.log('Correct!');
     } else {
       console.log(`\n${answer} is wrong answer ;(. Correct answer was ${correctAnswer.answer}.
-Let's try again, ${name}!`);
+Game over, ${name}!`);
       return;
     }
   }
-  console.log(`Congratulations, ${name}!`);
+  console.log(`\nCongratulations, ${name}!`);
 };
 export default brainGame;
